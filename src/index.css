@@ -1,13 +1,25 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark-bg: #5555c2;
+  --neon-blue: #00ffff;
+  --gold: #ffb400;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.bg-darkBg { background-color: var(--dark-bg); }
+.text-neonBlue { color: var(--neon-blue); }
+.text-gold { color: var(--gold); }
+.bg-neonBlue { background-color: var(--neon-blue); }
+.bg-gold { background-color: var(--gold); }
+
+/* Neon Glow Animations */
+@keyframes neon-glow {
+  0%,100% { text-shadow: 0 0 5px var(--neon-blue),0 0 10px var(--neon-blue); }
+  50% { text-shadow: 0 0 15px var(--neon-blue),0 0 30px var(--neon-blue); }
 }
+
+.neon-text { animation: neon-glow 1.5s ease-in-out infinite alternate; }
+.neon-button { transition: all 0.3s ease-in-out; }
+.neon-button:hover { box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue); }
